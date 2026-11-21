@@ -66,11 +66,11 @@ header{background:var(--hdr);-webkit-backdrop-filter:blur(18px) saturate(1.6);ba
 .card,.gt,.fe div,.pg,.buy,.cr,.sum,.hc{background:var(--glass);-webkit-backdrop-filter:blur(16px) saturate(1.5);backdrop-filter:blur(16px) saturate(1.5);border:1px solid var(--glass-b);box-shadow:var(--glass-sh);border-radius:20px}
 
 /* عنوان‌ها */
-.sh{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:8px;margin:30px 0 6px}
-.sh h2{grid-column:2}
-.sh a{grid-column:3;justify-self:end;color:var(--g2);font-weight:600;font-size:13px;padding:1px 12px;border-radius:99px;background:var(--soft);white-space:nowrap}
-.sh h2,h2.t{font-size:20px;line-height:1.6}
-.sh h2:after,h2.t:after{content:"";display:block;width:52px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--g),var(--g2));margin:2px auto 0}
+.sh{display:flex;justify-content:space-between;align-items:center;gap:8px;margin:26px 0 6px}
+.sh h2{flex:1;min-width:0}
+.sh a{flex:none;color:var(--g2);font-weight:600;font-size:13px;padding:1px 12px;border-radius:99px;background:var(--soft);white-space:nowrap}
+.sh h2,h2.t{font-size:17px;line-height:1.6}
+.sh h2:after,h2.t:after{content:"";display:block;width:52px;height:4px;border-radius:4px;background:linear-gradient(90deg,var(--g),var(--g2));margin:2px 0 0}
 
 /* ردیف افقی */
 .rw{position:relative}
@@ -161,7 +161,7 @@ footer{background:var(--foot);color:#FFE9A8;margin-top:50px;padding:28px 16px;fo
 
 @media(max-width:900px){.pg{grid-template-columns:1fr}.buy{position:static}.cb,.mn{display:none}}
 @media(min-width:901px){.ov{align-items:center}.sh2{border-radius:26px}.bn{display:none}body{padding-bottom:0}#ts{bottom:20px}}
-</style>
+.add.x2{background:transparent;border:1px solid var(--g2);color:var(--g2);margin-top:8px}.card .im img{transition:transform .35s}.card:hover .im img{transform:scale(1.06)}#app>*{animation:fi .35s ease both}@keyframes fi{from{opacity:0;transform:translateY(8px)}}@media(prefers-reduced-motion:reduce){#app>*{animation:none}.card:hover .im img{transform:none}}</style>
 </head>
 <body>
 <div class="top">فروشگاه حضوری: بیرجند · ارسال به سراسر ایران</div>
@@ -182,14 +182,14 @@ footer{background:var(--foot);color:#FFE9A8;margin-top:50px;padding:28px 16px;fo
 <footer><b>عسل باقران</b> · بیرجند · www.asal-bagheran.ir<br>قیمت‌ها به تومان و هر واحد (کیلوگرم یا لیتر) است.</footer>
 <nav class="bn" aria-label="ناوبری اصلی"><a href="#/" data-t="home"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20h14V9.5"/><path d="M10 20v-6h4v6"/></svg></span>خانه</a><a href="#/cats" data-t="cats"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="7" height="7" rx="2"/><rect x="13.5" y="3.5" width="7" height="7" rx="2"/><rect x="3.5" y="13.5" width="7" height="7" rx="2"/><rect x="13.5" y="13.5" width="7" height="7" rx="2"/></svg></span>دسته‌بندی</a><a href="#/cart" data-t="cart"><span class="ico" id="bi"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2.2l2.1 10.2a1.5 1.5 0 0 0 1.5 1.2h8.2a1.5 1.5 0 0 0 1.5-1.1L20.5 8H6"/><circle cx="9.5" cy="19.5" r="1.4"/><circle cx="17" cy="19.5" r="1.4"/></svg><i id="c2"></i></span>سبد خرید</a><a href="#/orders" data-t="orders"><span class="ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2z"/><path d="M9 8h6M9 12h6"/></svg></span>پیگیری سفارشات</a></nav><div id="ts"></div>
 <script>
-const PHOTOS=['h1','h2','h3','h4','h5','h6','h7','h8','h9','h10','h11','h12','h13','h14','h15','h16','h17','h18','h19','h20','h21','h22','h23','h24','h25','h26','h27','h28','h29','h31','h33','q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q13','q14','q15','q16','q17','q18','q20','q21'];
+const PHOTOS=['h1','h2','h3','h4','h5','h6','h7','h8','h9','h10','h11','h12','h13','h14','h15','h16','h17','h18','h19','h20','h21','h22','h23','h24','h25','h26','h27','h28','h29','h30','h31','h32','h33','h34','h35','h36','a1','a2','a3','a4','a5','a6','a7','a8','a9','q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q13','q14','q15','q16','q17','q18','q19','q20','q21'];
 const PHONE='';       // شماره واتساپ فروشگاه برای ثبت سفارش، مثل 989151234567
 
 const CATS={
 honey:{n:'عسل طبیعی',e:'🍯',u:'کیلوگرم',b:650000,pre:'h',
  t:'با بسته‌بندی بهداشتی عرضه می‌شود. عسل را دور از نور مستقیم نگه دارید؛ بلوری‌شدن عسل طبیعی عیب نیست.',
  f:['طبیعی و خوش‌طعم','منبع انرژی سریع','مناسب مصرف روزانه'],
- i:'عناب و زرشک و سنجد|عناب|عناب و زرشک|زرشک|کوهی وحشی|خارشتر|عناب و خارشتر|عناب و زرشک و خارشتر|زرشک و خارشتر|گز انگبین|گون گز|ممتاز دیابتی|بهاره|اسطوخودوس|سیاهدانه|کنار|آویشن|گشنیز|کلپوره|زعفران|چهل گیاه|گون|چند گیاه|یونجه|با موم|با موم خود بافت|ژل رویال|مخلوط عسل و ژل رویال|گرده گل|معجون تقویتی سفارشی|مخلوط عسل و گرده گل|مخلوط عسل و تبا شیره|مخلوط عسل و بره موم'},
+ i:'عناب و زرشک و سنجد|عناب|عناب و زرشک|زرشک|کوهی وحشی|خارشتر|عناب و خارشتر|عناب و زرشک و خارشتر|زرشک و خارشتر|گز انگبین|گون گز|ممتاز دیابتی|بهاره|اسطوخودوس|سیاهدانه|کنار|آویشن|گشنیز|کلپوره|زعفران|چهل گیاه|گون|چند گیاه|یونجه|با موم|با موم خود بافت|ژل رویال|مخلوط عسل و ژل رویال|گرده گل|معجون تقویتی سفارشی|مخلوط عسل و گرده گل|مخلوط عسل و تبا شیره|مخلوط عسل و بره موم|پودر بره موم|حبه بره موم|مخلوط عسل گون گز و بره موم'},
 ardeh:{n:'ارده و کره بادام‌زمینی',e:'🥜',u:'کیلوگرم',b:280000,pre:'a',
  t:'برای صبحانه، شیرینی‌پزی و غذاهای سنتی مناسب است. در جای خنک نگهداری شود.',
  f:['مغذی و پرانرژی','مناسب صبحانه','طعم اصیل سنتی'],
@@ -211,11 +211,12 @@ const K={عناب:'آرام‌بخش و دوست‌دار کبد',زرشک:'مو
 
 const P=[];
 for(const k in CATS){const C=CATS[k];C.i.split('|').forEach((n,j)=>{
- if(k=='honey'&&!/^(مخلوط|ژل|گرده|معجون)/.test(n))n='عسل '+n;
+ if(k=='honey'&&!/^(مخلوط|ژل|گرده|معجون|پودر|حبه)/.test(n))n='عسل '+n;
  if(k=='arq')n='عرق '+n;
  let s=0;for(const ch of n)s+=ch.charCodeAt(0);
  let p=C.b+(s%9)*25000;if(/زعفران|ژل|بره|سنجد|زول|معجون/.test(n))p+=350000;
- P.push({id:C.pre+(j+1),c:k,n,p:Math.round(p/10000)*10000,h:s})})}
+ let u='';if(/^(پودر|حبه)/.test(n)){p=200000+(s%5)*10000;u='بسته ۳۰ گرمی'}
+ P.push({id:C.pre+(j+1),c:k,n,p:Math.round(p/10000)*10000,h:s,u})})}
 
 const PAL={honey:['#F6B72B','#E39A12','#C97A0A','#F2C94C','#D98E1F','#B8620A'],ardeh:['#C9964E','#A8743A','#8B5A2B','#6B3E1E','#D2A86A','#7A4A22'],arq:['#CFE8D5','#E6F2C9','#D9EBF2','#F2E6C9','#E3D5F0','#F7DADA'],oil:['#E3C033','#C9A21C','#D4B23A','#B8921A','#E8CE5A','#A8821A'],vin:['#B5483A','#8E2F2F','#C86A4A','#D9A45A','#9B3E52','#CB5A5A']};
 const art=(c,h)=>{const f=PAL[c][h%6];return '<svg viewBox="0 0 120 150" role="img">'+(c=='honey'||c=='ardeh'?`<rect x="28" y="12" width="64" height="18" rx="5" fill="#5B3A1A"/><path d="M34 30h52c9 8 15 18 15 32v62c0 11-8 19-19 19H38c-11 0-19-8-19-19V62c0-14 6-24 15-32z" fill="${f}"/>`:`<rect x="50" y="6" width="20" height="14" rx="3" fill="#5B3A1A"/><path d="M52 20h16v22c16 8 22 16 22 34v52c0 11-7 17-16 17H46c-9 0-16-6-16-17V76c0-18 6-26 22-34z" fill="${f}" stroke="#0002"/>`)+`<rect x="30" y="56" width="9" height="62" rx="4" fill="#fff" opacity=".35"/><rect x="38" y="84" width="46" height="46" rx="8" fill="#FFF7E4"/><polygon points="61,90 75,98 75,114 61,122 47,114 47,98" fill="${f}" stroke="#3A2210" stroke-width="2"/></svg>`};
@@ -224,7 +225,7 @@ const BEE='<svg viewBox="0 0 100 80"><g class="wg"><ellipse cx="40" cy="22" rx="
 const $=s=>document.querySelector(s),fa=n=>n.toLocaleString('fa-IR');
 const img=p=>PHOTOS.includes(p.id)?`<img loading="lazy" src="images/${p.id}.jpg" alt="${p.n}" onerror="this.parentNode.innerHTML=art('${p.c}',${p.h})">`:art(p.c,p.h);
 const oldProps=p=>{const r=Object.keys(K).filter(k=>p.n.includes(k)).map(k=>k+': '+K[k]);return r.length?r.slice(0,4):CATS[p.c].f};
-const card=p=>`<a class="card" href="#/p/${p.id}"><div class="im">${img(p)}</div><h3>${p.n}</h3><div class="pr"><span>هر ${CATS[p.c].u}</span><b>${fa(p.p)} <small>تومان</small></b></div><button onclick="add('${p.id}',1,event)">افزودن به سبد</button></a>`;
+const card=p=>`<a class="card" href="#/p/${p.id}"><div class="im">${img(p)}</div><h3>${p.n}</h3><div class="pr"><span>هر ${p.u||CATS[p.c].u}</span><b>${fa(p.p)} <small>تومان</small></b></div><button onclick="add('${p.id}',1,event)">افزودن به سبد</button></a>`;
 
 let cart={},SORT='';
 try{cart=JSON.parse(localStorage.getItem('cart')||'{}')}catch(e){}
@@ -286,10 +287,10 @@ return `<div class="wrap"><div class="bc"><a href="#/">خانه</a> › <a href=
 <div><h1>${p.n}</h1><div class="chips">${props(p).slice(0,4).map(x=>`<span>${x}</span>`).join('')}</div>
 <h2>توضیحات</h2>${DESC(p)}
 <h2>خواص و ویژگی‌ها</h2><ul style="padding-right:20px">${props(p).map(x=>`<li>${x}</li>`).join('')}</ul>
-<h2>طرز مصرف و نگهداری</h2><p>${USE[p.c]}</p><p class="note">اطلاعات خواص بر پایه باورهای سنتی است و جایگزین مشاوره پزشک نیست.</p></div>
-<aside class="buy"><div style="color:var(--m)">قیمت هر ${C.u}</div><div class="p">${fa(p.p)} <small>تومان</small></div>
+<h2>طرز مصرف و نگهداری</h2><p>${p.u?USEB:USE[p.c]}</p><p class="note">اطلاعات خواص بر پایه باورهای سنتی است و جایگزین مشاوره پزشک نیست.</p></div>
+<aside class="buy"><div style="color:var(--m)">قیمت هر ${p.u||C.u}</div><div class="p">${fa(p.p)} <small>تومان</small></div>
 <label>تعداد<br><input id="n" type="number" min="1" value="1"></label>
-<button class="add" onclick="add('${p.id}',$('#n').value,event)">افزودن به سبد خرید</button>
+<button class="add" onclick="add('${p.id}',$('#n').value,event)">افزودن به سبد خرید</button><button class="add x2" onclick="shr('${p.id}')">اشتراک‌گذاری محصول</button>
 <p class="note">🏪 فروشگاه حضوری در بیرجند<br>📦 ارسال به سراسر ایران</p></aside></div>
 <div class="sh"><h2>محصولات مشابه</h2></div><div class="grid">${P.filter(x=>x.c==p.c&&x.id!=id).slice(0,4).map(card).join('')}</div></div>`}
 
@@ -370,7 +371,9 @@ const X={موم:'بره موم',هل:'چهل',شیره:'تبا شیره'};
 const mt=(p,k)=>(X[k]?p.n.replace(X[k],''):p.n).includes(k),ings=p=>Object.keys(D).filter(k=>mt(p,k));
 const props=p=>{const r=[...new Set(ings(p).flatMap(k=>D[k][1]))];return(r.length?r:CATS[p.c].f).slice(0,10)};
 const USE={honey:'روزی ۱ تا ۲ قاشق مرباخوری، ترجیحاً ناشتا یا همراه نان؛ عسل را در آب بالای ۴۰ درجه حل نکنید. برای کودکان زیر یک سال مناسب نیست. در جای خنک و دور از نور نگه دارید؛ بلوری‌شدن عسل طبیعی عیب نیست.',ardeh:'با شیره یا عسل روی نان صبحانه، یا در شیرینی و غذاهای سنتی. در جای خنک نگه دارید و قبل از مصرف هم بزنید. در صورت حساسیت به کنجد یا بادام‌زمینی مصرف نکنید.',arq:'روزانه ۱ لیوان کوچک (۵۰ تا ۱۰۰ میلی‌لیتر)، ساده یا همراه عسل و آب خنک. زنان باردار و شیرده و بیماران قبل از مصرف با پزشک مشورت کنند. در جای خنک و دور از نور نگه دارید.',oil:'برای سالاد و پخت‌وپز؛ در ظرف دربسته، دور از نور و گرما نگه دارید.',vin:'برای سالاد، ترشی و شربت‌های سنتی؛ رقیق کنید و مستقیم ننوشید. در جای خنک نگه دارید.'};
-const DESC=p=>`<p>${p.n} از محصولات فروشگاه عسل باقران بیرجند است. ${CATS[p.c].t}</p>`+ings(p).map(k=>`<p><b>${k}:</b> ${D[k][0]}.</p>`).join('');
+const USEB='کم‌مقدار و با نظر پزشک یا فروشنده مصرف کنید؛ می‌توان آن را در دهان نگه داشت یا در عسل و چای ولرم حل کرد. در صورت حساسیت به محصولات زنبور عسل مصرف نکنید. دور از نور و رطوبت نگه دارید.';
+function shr(id){const p=P.find(x=>x.id==id),u=location.href.split('#')[0]+'#/p/'+id;if(navigator.share){navigator.share({title:p.n+' | عسل باقران',url:u}).catch(()=>{})}else{try{navigator.clipboard.writeText(u);toast('لینک محصول کپی شد')}catch(e){toast(u)}}}
+const DESC=p=>`<p>${p.n} از محصولات فروشگاه عسل باقران بیرجند است. ${p.u?'با بسته‌بندی بهداشتی ۳۰ گرمی عرضه می‌شود.':CATS[p.c].t}</p>`+ings(p).map(k=>`<p><b>${k}:</b> ${D[k][0]}.</p>`).join('');
 const pd=s=>String(s).replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);
 const catsV=()=>`<div class="wrap cg"><i class="or o1"></i><i class="or o2"></i><i class="or o3"></i><div class="sh"><h2>دسته‌بندی‌ها</h2></div><div class="cgrid">${Object.keys(CATS).map(k=>`<a class="gt" href="#/c/${k}"><span class="hw"><span class="hx">${CATS[k].e}</span></span><b>${CATS[k].n}</b><small>${fa(P.filter(p=>p.c==k).length)} محصول</small></a>`).join('')}</div></div>`;
 let orders=[],CUR='';try{orders=JSON.parse(localStorage.getItem('ord')||'[]')}catch(e){}
